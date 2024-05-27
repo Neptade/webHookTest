@@ -7,6 +7,11 @@ const PORT = 3000;
 app.use(bodyParser.json());
 // Webhook endpoint
 
+app.post("/", (req, res) => {
+    console.log("Received request:", req.body);
+    res.status(200).send("Request received");
+}); 
+
 app.post("/webhook", (req, res) => {
     const event = req.body;
     // Process the event
